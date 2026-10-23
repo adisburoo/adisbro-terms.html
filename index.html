@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | adisbro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            /* Głęboki, kosmiczny granat */
+            background-color: #05070a;
+            min-height: 100vh;
+            font-family: 'Nunito', sans-serif;
+            position: relative;
+            overflow-x: hidden; 
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* === TŁO IDENTYCZNE JAK NA STRONIE GŁÓWNEJ === */
+        
+        /* Warstwa 1: Delikatna mgławica w tle */
+        .bg-nebula {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 50% -10%, rgba(120, 150, 200, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 10% 90%, rgba(60, 80, 120, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(40, 60, 100, 0.15) 0%, transparent 50%);
+            z-index: -3;
+        }
+
+        /* Warstwa 2: Świecący, księżycowy horyzont */
+        .bg-moon {
+            position: fixed;
+            bottom: -20vh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120vw;
+            height: 60vh;
+            max-width: 1200px;
+            border-radius: 50% 50% 0 0;
+            background: radial-gradient(ellipse at bottom, rgba(180, 200, 230, 0.15) 0%, rgba(10, 15, 25, 0) 70%);
+            z-index: -2;
+            filter: blur(10px);
+        }
+
+        /* Warstwa 3: Ostre gwiazdy (nieskończona rozdzielczość) */
+        .bg-stars {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(1.5px 1.5px at 15% 25%, #ffffff, transparent),
+                radial-gradient(2px 2px at 40% 15%, #e2e8f0, transparent),
+                radial-gradient(1px 1px at 75% 30%, #ffffff, transparent),
+                radial-gradient(2.5px 2.5px at 85% 70%, #cbd5e1, transparent),
+                radial-gradient(1.5px 1.5px at 20% 80%, #ffffff, transparent),
+                radial-gradient(1px 1px at 60% 90%, #e2e8f0, transparent),
+                radial-gradient(2px 2px at 10% 50%, #ffffff, transparent),
+                radial-gradient(1.5px 1.5px at 90% 10%, #ffffff, transparent);
+            background-repeat: repeat;
+            background-size: 250px 250px;
+            z-index: -1;
+            animation: twinkle 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
+        }
+
+        /* ========================================= */
+
+        .container {
+            max-width: 380px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1.5s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .name {
+            font-family: 'Caveat', cursive;
+            color: #f8fafc;
+            font-size: 3.8rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+            transform: rotate(-1deg);
+            text-align: center;
+        }
+
+        .bio {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+            text-align: center;
+        }
+
+        .content {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .content p, .content li {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .content h2 {
+            font-size: 1.15rem;
+            color: #f8fafc;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+        }
+
+        .content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .content strong {
+            color: #f8fafc;
+        }
+
+        /* Przycisk powrotu identyczny z linkami */
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #f1f5f9;
+            font-size: 1.15rem;
+            font-weight: 600;
+            padding: 12px 5px;
+            width: 100%;
+            border-bottom: 1.5px dashed rgba(203, 213, 225, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            margin-top: 20px;
+        }
+
+        .link-left { display: flex; align-items: center; gap: 15px; }
+        
+        .link-item i { font-size: 1.2rem; color: #94a3b8; transition: all 0.3s ease; }
+        
+        .link-item:hover { 
+            border-bottom: 1.5px solid #ffffff; 
+            color: #ffffff;
+        }
+        
+        .link-item:hover i { color: #ffffff; }
+        
+        .arrow { font-size: 1rem; opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease; }
+        .link-item:hover .arrow { transform: translateX(6px); opacity: 1; color: #ffffff; }
+
+        /* Pasek przewijania */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #05070a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+    </style>
+</head>
+<body>
+
+    <!-- Warstwy tła księżycowego -->
+    <div class="bg-nebula"></div>
+    <div class="bg-moon"></div>
+    <div class="bg-stars"></div>
+
+    <main class="container">
+        
+        <h1 class="name">Terms of Service</h1>
+        <p class="bio">Last updated: October 2026</p>
+
+        <div class="content">
+            <p>Welcome to my page! By using my social media platforms (TikTok, Discord) and this website, you agree to the following rules. Please take a moment to read them.</p>
+
+            <h2>1. General Provisions</h2>
+            <p>This website is private and serves as a Link-in-Bio. All content posted on my profiles is my property or is used in accordance with the law.</p>
+
+            <h2>2. Community Guidelines</h2>
+            <p>I strive to create a positive space. I expect culture and respect. The following are strictly prohibited:</p>
+            <ul>
+                <li>Spamming or promoting your own content without permission.</li>
+                <li>Offensive behavior, hate speech, or harassment.</li>
+                <li>Impersonating me or any other individual.</li>
+            </ul>
+
+            <h2>3. Intellectual Property</h2>
+            <p>All photos, videos, graphics, and texts published by me on TikTok, Discord, or this website are protected by copyright. <strong>Copying, editing, and distributing my content without my explicit consent is strictly forbidden.</strong></p>
+
+            <h2>4. Discord</h2>
+            <p>By clicking the "Discord" button on the main page, you copy my username. You are welcome to send a friend request, but acceptance is at my discretion. Inviting me to inappropriate servers or sending spam will result in a block.</p>
+
+            <h2>5. Privacy</h2>
+            <p>This website does not collect any private data (no tracking cookies or password requests). By clicking links to TikTok or Discord, you are redirected to external services that have their own privacy policies.</p>
+
+            <h2>6. Changes to the Terms</h2>
+            <p>I reserve the right to change these terms at any time. Changes take effect immediately upon being published on this page.</p>
+
+            <h2>7. Contact</h2>
+            <p>For questions, collaborations, or to report violations, please contact me via a private message on Discord.</p>
+        </div>
+
+        <!-- Powrót do index.html -->
+        <a href="index.html" class="link-item">
+            <div class="link-left">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to profile</span>
+            </div>
+            <i class="fa-solid fa-arrow-right arrow"></i>
+        </a>
+
+    </main>
+
+</body>
+</html>
