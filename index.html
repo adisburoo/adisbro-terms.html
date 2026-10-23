@@ -13,7 +13,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background-color: #05070a;
+            background-color: #0b1120;
             min-height: 100vh;
             font-family: 'Nunito', sans-serif;
             position: relative;
@@ -24,47 +24,32 @@
             align-items: flex-start;
         }
 
-        /* === TŁO KSĘŻYCOWE (Identyczne) === */
-        .bg-nebula {
+        /* === MOTYW KSĘŻYCOWY (Identyczny) === */
+        .moon-glow {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                radial-gradient(circle at 50% -10%, rgba(120, 150, 200, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 10% 90%, rgba(60, 80, 120, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(40, 60, 100, 0.15) 0%, transparent 50%);
-            z-index: -3;
-        }
-        .bg-moon {
-            position: fixed;
-            bottom: -20vh;
+            top: -20vh;
             left: 50%;
             transform: translateX(-50%);
-            width: 120vw;
-            height: 60vh;
-            max-width: 1200px;
-            border-radius: 50% 50% 0 0;
-            background: radial-gradient(ellipse at bottom, rgba(180, 200, 230, 0.15) 0%, rgba(10, 15, 25, 0) 70%);
+            width: 150vw;
+            height: 100vh;
+            background: radial-gradient(ellipse at top, rgba(203, 213, 225, 0.15) 0%, transparent 70%);
             z-index: -2;
-            filter: blur(10px);
+            pointer-events: none;
         }
-        .bg-stars {
+        .crescent {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                radial-gradient(1.5px 1.5px at 15% 25%, #ffffff, transparent),
-                radial-gradient(2px 2px at 40% 15%, #e2e8f0, transparent),
-                radial-gradient(1px 1px at 75% 30%, #ffffff, transparent),
-                radial-gradient(2.5px 2.5px at 85% 70%, #cbd5e1, transparent),
-                radial-gradient(1.5px 1.5px at 20% 80%, #ffffff, transparent),
-                radial-gradient(1px 1px at 60% 90%, #e2e8f0, transparent),
-                radial-gradient(2px 2px at 10% 50%, #ffffff, transparent),
-                radial-gradient(1.5px 1.5px at 90% 10%, #ffffff, transparent);
-            background-repeat: repeat;
-            background-size: 250px 250px;
+            top: 10%;
+            right: -5%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            box-shadow: inset -40px 20px 0 0 rgba(203, 213, 225, 0.05);
+            filter: blur(3px);
             z-index: -1;
-            animation: twinkle 4s ease-in-out infinite alternate;
+            transform: rotate(-20deg);
+            pointer-events: none;
         }
-        /* ================================================= */
+        /* =================================== */
 
         .container {
             max-width: 380px;
@@ -77,14 +62,7 @@
             z-index: 1;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes twinkle {
-            0% { opacity: 0.3; }
-            100% { opacity: 0.8; }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
         .name {
             font-family: 'Caveat', cursive;
@@ -93,7 +71,7 @@
             font-weight: 700;
             line-height: 1;
             margin-bottom: 5px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(203, 213, 225, 0.3);
             transform: rotate(-1deg);
             text-align: center;
         }
@@ -113,6 +91,12 @@
             width: 100%;
             text-align: left;
             margin-bottom: 30px;
+            background: rgba(15, 23, 42, 0.5);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .content p, .content li {
@@ -132,14 +116,8 @@
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
         }
 
-        .content ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        .content strong {
-            color: #f8fafc;
-        }
+        .content ul { margin-left: 20px; margin-bottom: 15px; }
+        .content strong { color: #f8fafc; }
 
         .link-item {
             display: flex;
@@ -159,30 +137,57 @@
         }
 
         .link-left { display: flex; align-items: center; gap: 15px; }
-        
         .link-item i { font-size: 1.2rem; color: #94a3b8; transition: all 0.3s ease; }
-        
-        .link-item:hover { 
-            border-bottom: 1.5px solid #ffffff; 
-            color: #ffffff;
-        }
-        
+        .link-item:hover { border-bottom: 1.5px solid #ffffff; color: #ffffff; }
         .link-item:hover i { color: #ffffff; }
         
         .arrow { font-size: 1rem; opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease; }
         .link-item:hover .arrow { transform: translateX(6px); opacity: 1; color: #ffffff; }
 
+        /* === BANER COOKIES === */
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(150%);
+            width: 90%;
+            max-width: 380px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .cookie-banner.show { transform: translateX(-50%) translateY(0); }
+        .cookie-text { color: #cbd5e1; font-size: 0.85rem; line-height: 1.5; text-align: left; }
+        .cookie-buttons { display: flex; gap: 10px; }
+        .cookie-btn {
+            flex: 1; padding: 10px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+            cursor: pointer; transition: all 0.3s ease; font-family: 'Nunito', sans-serif; border: none;
+        }
+        .cookie-accept { background: #ffffff; color: #0f172a; }
+        .cookie-accept:hover { background: #e2e8f0; }
+        .cookie-decline { background: rgba(255, 255, 255, 0.1); color: #f8fafc; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .cookie-decline:hover { background: rgba(255, 255, 255, 0.2); }
+
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #05070a; }
+        ::-webkit-scrollbar-track { background: #0b1120; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #64748b; }
     </style>
 </head>
 <body>
 
-    <div class="bg-nebula"></div>
-    <div class="bg-moon"></div>
-    <div class="bg-stars"></div>
+    <div class="moon-glow"></div>
+    <div class="crescent"></div>
 
     <main class="container">
         
@@ -219,7 +224,6 @@
             <p>For questions, collaborations, or to report violations, please contact me via a private message on Discord.</p>
         </div>
 
-        <!-- === PODMIENIONY LINK POWROTU DO PROFILU === -->
         <a href="https://adisburoo.github.io/adisbro/" class="link-item">
             <div class="link-left">
                 <i class="fa-solid fa-arrow-left"></i>
@@ -229,6 +233,28 @@
         </a>
 
     </main>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-text">Ta strona używa plików cookies, aby zapewnić Ci najlepsze doświadczenia. Kontynuując przeglądanie, zgadzasz się na ich użycie.</div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-decline" onclick="handleCookies('declined')">Odrzuć</button>
+            <button class="cookie-btn cookie-accept" onclick="handleCookies('accepted')">Akceptuj</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cookieBanner = document.getElementById("cookieBanner");
+            if (!localStorage.getItem("cookieConsent")) {
+                setTimeout(() => { cookieBanner.classList.add("show"); }, 1000); 
+            }
+        });
+
+        function handleCookies(choice) {
+            localStorage.setItem("cookieConsent", choice);
+            document.getElementById("cookieBanner").classList.remove("show");
+        }
+    </script>
 
 </body>
 </html>
