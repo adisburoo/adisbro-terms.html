@@ -15,16 +15,17 @@
         body {
             background-color: #0b1120;
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Zaczyna od góry, by można było czytać */
+            padding: 50px 20px; /* Większy padding górny */
             font-family: 'Nunito', sans-serif;
             position: relative;
             overflow-x: hidden; 
-            padding: 50px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            overflow-y: auto; /* Pozwala na przewijanie tekstu */
         }
 
-        /* === MOTYW KSĘŻYCOWY (Identyczny) === */
+        /* === MOTYW KSĘŻYCOWY (Identyczny jak na profilu) === */
         .moon-glow {
             position: fixed;
             top: -20vh;
@@ -36,6 +37,7 @@
             z-index: -2;
             pointer-events: none;
         }
+
         .crescent {
             position: fixed;
             top: 10%;
@@ -64,6 +66,7 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
+        /* Nagłówek - identyczny styl jak imię "adisbro." */
         .name {
             font-family: 'Caveat', cursive;
             color: #f8fafc;
@@ -76,8 +79,9 @@
             text-align: center;
         }
 
+        /* Podtytuł - identyczny styl jak "Content Creator" */
         .bio {
-            color: #cbd5e1;
+            color: #94a3b8;
             font-size: 1.05rem;
             margin-bottom: 40px;
             font-weight: 600;
@@ -87,16 +91,11 @@
             text-align: center;
         }
 
+        /* Treść regulaminu - bez żadnych ramek, czysty tekst */
         .content {
             width: 100%;
             text-align: left;
-            margin-bottom: 30px;
-            background: rgba(15, 23, 42, 0.5);
-            padding: 25px;
-            border-radius: 12px;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
         }
 
         .content p, .content li {
@@ -116,9 +115,16 @@
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
         }
 
-        .content ul { margin-left: 20px; margin-bottom: 15px; }
-        .content strong { color: #f8fafc; }
+        .content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
 
+        .content strong {
+            color: #f8fafc;
+        }
+
+        /* Przycisk powrotu (wygląda dokładnie jak link do TikToka/Discorda) */
         .link-item {
             display: flex;
             align-items: center;
@@ -129,7 +135,7 @@
             font-weight: 600;
             padding: 12px 5px;
             width: 100%;
-            border-bottom: 1.5px dashed rgba(203, 213, 225, 0.4);
+            border-bottom: 1.5px dashed rgba(203, 213, 225, 0.3);
             transition: all 0.3s ease;
             cursor: pointer;
             text-shadow: 0 1px 3px rgba(0,0,0,0.8);
@@ -137,12 +143,28 @@
         }
 
         .link-left { display: flex; align-items: center; gap: 15px; }
-        .link-item i { font-size: 1.2rem; color: #94a3b8; transition: all 0.3s ease; }
-        .link-item:hover { border-bottom: 1.5px solid #ffffff; color: #ffffff; }
+        
+        .link-item i.fa-brands, .link-item i.fa-solid, .link-item i.fa-regular { 
+            font-size: 1.3rem; 
+            color: #64748b; 
+            transition: all 0.3s ease; 
+        }
+        
+        .link-item:hover { 
+            border-bottom: 1.5px solid #ffffff; 
+            color: #ffffff;
+        }
+        
         .link-item:hover i { color: #ffffff; }
         
-        .arrow { font-size: 1rem; opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease; }
+        .arrow { font-size: 1rem; opacity: 0.5; transition: transform 0.3s ease, opacity 0.3s ease; }
         .link-item:hover .arrow { transform: translateX(6px); opacity: 1; color: #ffffff; }
+
+        /* Pasek przewijania (dopasowany do ciemnego tła) */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0b1120; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
 
         /* === BANER COOKIES === */
         .cookie-banner {
@@ -177,15 +199,11 @@
         .cookie-accept:hover { background: #e2e8f0; }
         .cookie-decline { background: rgba(255, 255, 255, 0.1); color: #f8fafc; border: 1px solid rgba(255, 255, 255, 0.2); }
         .cookie-decline:hover { background: rgba(255, 255, 255, 0.2); }
-
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #0b1120; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
     </style>
 </head>
 <body>
 
+    <!-- Tło księżycowe (identyczne) -->
     <div class="moon-glow"></div>
     <div class="crescent"></div>
 
@@ -224,6 +242,7 @@
             <p>For questions, collaborations, or to report violations, please contact me via a private message on Discord.</p>
         </div>
 
+        <!-- Przycisk powrotu (wygląda jak link do TikToka/Discorda) -->
         <a href="https://adisburoo.github.io/adisbro/" class="link-item">
             <div class="link-left">
                 <i class="fa-solid fa-arrow-left"></i>
@@ -234,11 +253,12 @@
 
     </main>
 
+    <!-- Baner Cookies -->
     <div class="cookie-banner" id="cookieBanner">
-        <div class="cookie-text">Ta strona używa plików cookies, aby zapewnić Ci najlepsze doświadczenia. Kontynuując przeglądanie, zgadzasz się na ich użycie.</div>
+        <div class="cookie-text">This website uses cookies to ensure you get the best experience. By continuing to browse, you agree to their use.</div>
         <div class="cookie-buttons">
-            <button class="cookie-btn cookie-decline" onclick="handleCookies('declined')">Odrzuć</button>
-            <button class="cookie-btn cookie-accept" onclick="handleCookies('accepted')">Akceptuj</button>
+            <button class="cookie-btn cookie-decline" onclick="handleCookies('declined')">Decline</button>
+            <button class="cookie-btn cookie-accept" onclick="handleCookies('accepted')">Accept</button>
         </div>
     </div>
 
