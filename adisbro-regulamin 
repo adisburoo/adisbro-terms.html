@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | adisbro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -13,7 +13,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            /* Głęboki, kosmiczny granat */
             background-color: #05070a;
             min-height: 100vh;
             font-family: 'Nunito', sans-serif;
@@ -25,9 +24,7 @@
             align-items: flex-start;
         }
 
-        /* === TŁO IDENTYCZNE JAK NA STRONIE GŁÓWNEJ === */
-        
-        /* Warstwa 1: Delikatna mgławica w tle */
+        /* === TŁO KSĘŻYCOWE (Identyczne) === */
         .bg-nebula {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -37,8 +34,6 @@
                 radial-gradient(circle at 90% 80%, rgba(40, 60, 100, 0.15) 0%, transparent 50%);
             z-index: -3;
         }
-
-        /* Warstwa 2: Świecący, księżycowy horyzont */
         .bg-moon {
             position: fixed;
             bottom: -20vh;
@@ -52,8 +47,6 @@
             z-index: -2;
             filter: blur(10px);
         }
-
-        /* Warstwa 3: Ostre gwiazdy (nieskończona rozdzielczość) */
         .bg-stars {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -71,13 +64,7 @@
             z-index: -1;
             animation: twinkle 4s ease-in-out infinite alternate;
         }
-
-        @keyframes twinkle {
-            0% { opacity: 0.3; }
-            100% { opacity: 0.8; }
-        }
-
-        /* ========================================= */
+        /* ================================================= */
 
         .container {
             max-width: 380px;
@@ -93,6 +80,10 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
         }
 
         .name {
@@ -150,7 +141,6 @@
             color: #f8fafc;
         }
 
-        /* Przycisk powrotu identyczny z linkami */
         .link-item {
             display: flex;
             align-items: center;
@@ -182,7 +172,6 @@
         .arrow { font-size: 1rem; opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease; }
         .link-item:hover .arrow { transform: translateX(6px); opacity: 1; color: #ffffff; }
 
-        /* Pasek przewijania */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #05070a; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
@@ -191,7 +180,6 @@
 </head>
 <body>
 
-    <!-- Warstwy tła księżycowego -->
     <div class="bg-nebula"></div>
     <div class="bg-moon"></div>
     <div class="bg-stars"></div>
@@ -231,8 +219,8 @@
             <p>For questions, collaborations, or to report violations, please contact me via a private message on Discord.</p>
         </div>
 
-        <!-- Powrót do index.html -->
-        <a href="index.html" class="link-item">
+        <!-- === PODMIENIONY LINK POWROTU DO PROFILU === -->
+        <a href="https://adisburoo.github.io/adisbro/" class="link-item">
             <div class="link-left">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back to profile</span>
